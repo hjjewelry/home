@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="handj.ico">
+    <title>H and J Jewelry</title>
+    <style>
+        body {
+            background: url('diamonds.png');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: url('rings.png');
+            background-size: cover;
+            padding: 20px;
+            width: 99%;
+            height: 150px;
+            text-shadow: 0px 2px 0px #000;
+            border-bottom-left-radius: 100px 50px;
+            border-bottom-right-radius: 100px 50px;
+            position: relative;
+            z-index: -1;
+        }
+        .logo-title-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            background: #E11299;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        .title {
+            color: white;
+            font-size: 80px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+          .side-icons {
+            position: fixed;
+            top: 50%;
+            right: -120px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: right 0.5s ease-in-out;
+        }
+
+        .side-icons:hover {
+            right: 10px;
+        }
+
+        .icon-bar {
+            display: flex;
+            right: 10px;
+            flex-direction: column;
+            align-items: center;
+            background-color: #9A208C;
+            padding: 10px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 150px;
+            height: 50px;
+            margin: 5px 0;
+            padding: 5px;
+            transition: width 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        .icon img {
+            width: 35px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .menu-text {
+            opacity: 0;
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+            transition: opacity 0.3s ease-in-out;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+        .icon:hover {
+            width: 150px;
+        }
+        .icon:hover img {
+            opacity: 0;
+        }
+        .icon:hover .menu-text {
+            opacity: 1;
+             text-shadow: 0 0 10px #fff;
+        }
+
+        .bottom-icons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .bottom-icon {
+            position: relative;
+            width: 50px;
+            height: 50px;
+        }
+        .bottom-icon img {
+            width: 35px;
+        }
+        .bottom-icon:hover .menu-text {
+            opacity: 1;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .floating-image {
+            width: 60px;
+            height: 60px;
+            background: #FFEAEA;
+            border-radius: 50%;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+            animation: float 3s infinite ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
+            z-index: -1;
+            
+        }
+        
+        .floating-image:hover {
+            background: #E11299;
+            border-radius: 10%;
+            padding: 3px;
+        }
+
+        .welcome-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 150px;
+            z-index: -1;
+        }
+
+        .welcome-text {
+            color: #E11299;
+            font-size: 120px;
+            font-family: Bickham Script Pro;
+            font-weight: bold;
+            text-shadow: 0px 5px 0px #FFEAEA;
+            animation: float 5s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icons img {
+            width: 35px;
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+            filter: drop-shadow(0 0 5px pink);
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 5px pink);
+        }
+    .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 20;
+        }
+        .live-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: not-allowed;
+            background-color: gray;
+            color: white;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .live-active {
+            cursor: pointer;
+            background-color: red;
+            animation: blink 1s infinite;
+        }
+   
+        @keyframes blink {
+            0% { background-color: red; }
+            50% { background-color: darkred; }
+            100% { background-color: red; }
+        }
+ #floating-iframe-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 267px;
+    height: 591px;
+    z-index: 1000;
+    cursor: grab;
+    user-select: none;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    padding: 5px;
+  }
+
+  #floating-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 30px;
+  }
+         .gform-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #9A208C;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+        }
+        .gform-button:hover {
+            background-color: #FFEAEA;
+            color: #000
+        }
+        @media (max-width: 768px) {
+            .side-icons {
+                right: -200px;
+                transition: right 0.3s ease-in-out;
+            }
+            .side-icons.active {
+                right: 10px;
+            }
+            .title {
+                font-size: 30px;
+            }
+            .menu-toggle {
+                display: block;
+                z-index: 100;
+            }
+            .welcome-text {
+            color: #E11299;
+            font-size: 60px;
+            font-family: Bickham Script Pro;
+            font-weight: bold;
+            text-shadow: 0px 5px 0px #FFEAEA;
+            animation: float 5s infinite ease-in-out;
+            }
+           #floating-iframe-container {
+            display: none;
+            }
+
+    .live-button {
+    padding: 15px 15px;
+    font-size: 15px;
+    border-radius: 50px;
+    z-index: 1000;
+           }
+       }
+    </style>
+</head>
+<body>
+   <div class="header">
+        <div class="logo-title-container">
+            <div class="logo"><img src="H and J Logo.png" width="100"></div>
+            <div class="title">RETAIL NETWORK</div>
+        </div>
+    </div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="side-icons">
+        <div class="icon-bar">
+    <div class="icon"><a href="about.html"><img src="about.png" alt="About"><span class="menu-text">About</span><a/></div>
+    <div class="icon"><a href="services.html"><img src="business.png" alt="Services"><span class="menu-text">Services</span><a/></div>
+    <div class="icon"><a href="https://www.facebook.com/profile.php?id=100092359301228&sk=photos"><img src="gallery.png" alt="Collections"><span class="menu-text">Collections</span><a/></div>
+    <div class="icon"><a href="subs.html"><img src="branch.png" alt="Subsidiaries"><span class="menu-text">Subsidiaries</span><a/></div>
+    <div class="icon"><a href="people.html"><img src="org.png" alt="People"><span class="menu-text">Organization</span><a/></div>
+    <div class="icon"><a href="faq.html"><img src="faq.png" alt="FAQ"><span class="menu-text">FAQ</span><a/></div>
+        </div>
+       </div>
+     </div>
+
+    <div class="welcome-section">
+        <div class="image-container">
+            <div class="floating-image"><img src="H and J Logo.png" width="30"></div>
+            <div class="floating-image"><img src="msjoyd.png" width="50"></div>
+            <div class="floating-image"><img src="H and J Repair Logo.png" width="35"></div>
+            <div class="floating-image"><img src="Hilary Salon Logo.png" width="50"></div>
+        </div>
+        <div class="welcome-text">Welcome to H and J</div>
+    </div>
+  <div id="floating-iframe-container">
+  <iframe id="floating-iframe" 
+          src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2F100092359301228%2Fvideos%2F1185070660071333%2F&show_text=true&width=267&t=0" 
+          allowfullscreen="true" 
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+  </iframe>
+</div>
+        <div class="social-icons">
+        <a href="tel:+639771540130"><img src="contact me.png" alt="Call Me"></a>
+        <a href="https://www.tiktok.com/@h.and.j.pawnshop?_t=8ikLZjv07a3&_r=1&fbclid=IwY2xjawIqTeJleHRuA2FlbQIxMAABHeCmg2hkOhVJ8jwBkHe5pxoKVmfMn9igFPfVZrva9EVD4BdaIwOhzDnlXw_aem_yD8dYk_f4lbQ8wsTCKqoaA"><img src="tiktok.png" alt="TikTok"></a>
+        <a href="https://www.facebook.com/profile.php?id=100092359301228"><img src="facebook.png" alt="Facebook"></a>
+        <a href="mailto:hnjpawnshop@gmail.com"><img src="email.png" alt="Email"></a>
+        <a href="https://maps.app.goo.gl/gf4GqKmoszuWVrB46"><img src="maps.png" alt="Maps"></a>
+    </div>
+        <button id="liveButton" class="live-button" disabled>Live Offline</button>
+        <a href="https://forms.gle/UR2YYfEAJDMaTKMKA" class="gform-button">Employee Form</a>
+    <div style="color: #E11299; font-size: 14px; text-shadow: 0px 1px 0px #fff; margin-top: 20px;">&copy; 2025 H and J FASHION and JEWELRY. All Rights Reserved.</div>
+    <script>
+        function toggleMenu() {
+            document.querySelector('.side-icons').classList.toggle('active');
+        }
+    </script>
+         <script>
+        function checkLiveStatus() {
+            const isLive = Math.random() < 0.5;
+            const liveButton = document.getElementById("liveButton");
+
+            if (isLive) {
+                liveButton.textContent = "🔴 Watch our Live Selling Here";
+                liveButton.classList.add("live-active");
+                liveButton.disabled = false;
+                liveButton.onclick = function() {
+                    window.open("https://www.facebook.com/profile.php?id=100092359301228&sk=live_videos", "_blank");
+                };
+            } else {
+                liveButton.textContent = "Live Offline";
+                liveButton.classList.remove("live-active");
+                liveButton.disabled = true;
+            }
+        }
+        setInterval(checkLiveStatus, 10000);
+        checkLiveStatus();
+    </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("floating-iframe-container");
+    let isDragging = false, startX, startY, initialX, initialY;
+
+    container.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      initialX = container.offsetLeft;
+      initialY = container.offsetTop;
+      container.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+
+      let newX = initialX + (e.clientX - startX);
+      let newY = initialY + (e.clientY - startY);
+
+      const maxX = window.innerWidth - container.offsetWidth;
+      const maxY = window.innerHeight - container.offsetHeight;
+
+      newX = Math.max(0, Math.min(newX, maxX));
+      newY = Math.max(0, Math.min(newY, maxY));
+
+      container.style.left = `${newX}px`;
+      container.style.top = `${newY}px`;
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+      container.style.cursor = "grab";
+    });
+
+    document.addEventListener("mouseleave", () => {
+      isDragging = false;
+      container.style.cursor = "grab";
+    });
+  });
+</script>
+</body>
+</html>
