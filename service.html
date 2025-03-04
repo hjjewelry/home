@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('ring.png') no-repeat center center/cover;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .card-container {
+            position: relative;
+            width: 400px;
+            height: 500px;
+        }
+
+       .card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #F5C6EC;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+         .home-button {
+            position: absolute;
+            margin-top: 100px;
+            padding: 10px 20px;
+            background-color: #880E4F;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            bottom: 20px;
+            left: 50%;
+            justify-content: center;
+            text-align: center;
+            display: flex;
+            transform: translateX(-50%);
+        }
+        .home-button:hover {
+            background-color: #F5C6EC;
+            color: #000
+        }
+        .description {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: left;
+            width: 90%;
+        }
+
+        .card img {
+            width: 60px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" style="z-index: 4;" onclick="nextCard(this)">
+            <img src="H and J Logo.png" alt="Card 1">
+            <div class="description">
+            <p><strong>H and J Jewelry Shop</strong> – Exquisite Gold Jewelry & Online Shopping</p>
+            <p>H and J Jewelry Shop is the heart of our business, offering an extensive collection of high-quality gold jewelry, including earrings, necklaces, rings, and more. Our physical store and online platform provide a seamless shopping experience, catering to both in-person and online customers.</p>
+            <p>✅ <strong>Wide Selection of Fine Jewelry</strong> – Timeless gold pieces for every occasion.</p>
+            <p>✅ <strong>Secure Online Shopping & Layaway Plans</strong> – Convenient browsing, checkout, and flexible payment options.</p>
+            <p>✅ <strong>Quality Craftsmanship</strong> – Every piece is crafted with precision and attention to detail.</p>
+        </div>
+            </div>
+        <div class="card" style="z-index: 3;" onclick="nextCard(this)">
+            <img src="msjoyd.png" alt="Card 2">
+            <div class="description">
+            <p><strong>Ms. Joy D Jewelry Shop</strong> – Exclusive Gold & Fine Jewelry Collections</p>
+            <p>Ms. Joy D Jewelry Shop offers an exclusive selection of authentic gold and fine jewelry, featuring elegant designs for every style. This physical store provides a refined shopping experience, showcasing timeless and modern pieces alike.</p>
+            <p>✅ <strong>Handpicked Collections</strong> – Carefully curated designs for various occasions.</p>
+            <p>✅ <strong>Authenticity & Quality</strong> – Every piece meets the highest standards.</p>
+            <p>✅ <strong>Personalized Shopping Assistance</strong> – Helping you find jewelry that suits your taste.</p>
+            </div>
+        </div>
+        <div class="card" style="z-index: 2;" onclick="nextCard(this)">
+            <img src="H and J Repair Logo.png" alt="Card 3">
+            <div class="description">
+            <p><strong>H and J Jewelry Repair Shop</strong> – Expert Jewelry Restoration & Maintenance</p>
+            <p>Jewelry holds sentimental value, and at H and J Jewelry Repair Shop, we specialize in restoring, maintaining, and enhancing your treasured pieces with expert craftsmanship.</p>
+            <p>✅ <strong>Resizing & Adjustments</strong> – Perfect fit for rings, bracelets, and more.</p>
+            <p>✅ <strong>Stone Resetting & Polishing</strong> – Restore brilliance and durability.</p>
+            <p>✅ <strong>Soldering & Full Restoration</strong> – Bring damaged jewelry back to life with precision.</p>
+            <p>We guarantee meticulous care to ensure your jewelry remains as stunning as the day you got it.</p>
+            </div>
+        </div>
+        <div class="card" style="z-index: 1;" onclick="nextCard(this)">
+            <img src="Hilary Salon Logo.png" alt="Card 4">
+            <div class="description">
+            <p><strong>Hilary Salon</strong> – Premium Beauty & Hair Care Services</p>
+            <p>Hilary Salon brings luxury and confidence to our clients through professional beauty and hair care services in a relaxing atmosphere.</p>
+            <p>✅ <strong>Expert Haircuts & Styling</strong> – From classic cuts to trendy transformations.</p>
+            <p>✅ <strong>Hair Treatments & Color Services</strong> – Nourish, protect, and enhance your hair.</p>
+            <p>✅ <strong>Beauty & Skincare Services</strong> – Pampering treatments for radiant confidence.</p>
+            <p>At Hilary Salon, we ensure every client leaves looking and feeling their best.</p>
+            </div>
+        </div>
+    </div>
+       <div> <a href="https://jmacaambac.github.io/hnjdraft/" class="home-button">Home</a></div>
+    <script>
+        function nextCard(card) {
+            let container = document.querySelector('.card-container');
+            let cards = document.querySelectorAll('.card');
+            
+            card.style.transform = 'translateY(-500px) rotate(10deg)';
+            card.style.opacity = '0';
+            
+            setTimeout(() => {
+                card.style.display = 'none';
+                container.appendChild(card);
+                card.style.display = 'block';
+                card.style.transform = 'translateY(0) rotate(0deg)';
+                card.style.opacity = '1';
+                updateZIndex();
+            }, 500);
+        }
+        
+        function updateZIndex() {
+            let cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.zIndex = cards.length - index;
+            });
+        }
+    </script>
+</body>
+</html>
