@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favabout.ico">
+    <title>About H and J</title>
+    <style>
+        body {
+            font-family: Century Gothic, sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            background: url('jewelries.png') no-repeat center center/cover;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+            }
+        .profile-section {
+            position: relative;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 80px;
+            margin-top: -100px;
+        }
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid white;
+            transition: transform 0.3s ease-in-out;
+        }
+         .profile-pic:hover {
+            transform: scale(1.7);
+        }
+        .logo-hover {
+            width: 75px;
+            transition: transform 0.3s ease-in-out;
+            }
+        .logo-hover:hover {
+            transform: scale(1.5);
+        }
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            margin-top: 90px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #000;
+        }
+        p {
+            color: #000;
+            line-height: 1.6;
+        }
+        .home-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #9A208C;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+        }
+        .home-button:hover {
+            background-color: #FFEAEA;
+            color: #000
+        }
+    </style>
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("bg-music");
+        const muteBtn = document.getElementById("mute-btn");
+        audio.oncanplaythrough = function() {
+            console.log("Audio is ready to play!");
+            audio.muted = false;
+        };
+        muteBtn.addEventListener("click", function () {
+            if (audio) {
+                audio.muted = !audio.muted;
+                if (audio.muted) {
+                    muteBtn.textContent = "🔊";
+                } else {
+                    muteBtn.textContent = "🔇";
+                }
+                console.log("Audio muted status:", audio.muted);
+            }
+        });
+    });
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <img src="JOY.png" alt="Profile Picture" class="profile-pic">
+        <h1>Welcome to H&J Fashion and Jewelry!</h1>
+    <div>      
+    <span id="mute-btn" style="cursor: pointer; font-size: 24px;">🔇</span>
+    </div> 
+        <p>Founded in November 2019 by Mrs. Joy Dajan, a dedicated jeweler from Imus City, Cavite, H&J Fashion and Jewelry has been a trusted name in exquisite gold jewelry and timeless accessories. Our first store, located at Ford Arcade Building 117, 4A Aguinaldo Highway, Bayan Luma 4, Imus City, Cavite, 4103, remains the heart of our operations, offering a wide range of high-quality jewelry pieces and exceptional customer service.</p>
+        <p>At H&J Fashion and Jewelry, we take pride in bringing elegance and sophistication to every piece we craft. Whether you’re searching for the perfect accessory or need expert jewelry repair, we are here to serve you with excellence and passion.</p>
+        <p><strong>Visit us today and discover the beauty that lasts a lifetime!</strong></p>
+     
+        <a href="https://jmacaambac.github.io/hnjdraft/" class="home-button">Home</a>
+    </div>
+
+   <div><a href="missionvision.html" class="home-button">Statement</a></div>
+   <div><a href="bylaws.html" class="home-button">By Laws</a></div>
+   <div><a href="ownermessage.html" class="home-button">Owner's Message</a></div>
+<li></li>
+    <div>
+       <img src="H and J Logo.png" class="logo-hover" alt="My Logo" style="width: 100px;  display: inline-block;">
+    </div>
+
+<audio id="bg-music" autoplay loop>
+    <source src="Golds and Diamonds.mp3" type="audio/mpeg">
+ Your browser does not support the audio element.
+</audio>
+
+</body>
+</html>
