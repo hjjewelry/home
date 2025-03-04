@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizational Chart</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            background-image: url('jewels.png');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+    
+        .chart {
+             display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .person {
+            width: 150px;
+            height: 180px;
+            perspective: 1000px;
+            margin: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .person-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .person:hover .person-inner {
+            transform: rotateY(180deg);
+        }
+        .person.active {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(2);
+            z-index: 100;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .person-front, .person-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #E11299;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .person-back {
+            transform: rotateY(180deg);
+            flex-direction: column;
+        }
+
+        .person-back img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .worker-level {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            gap: 50px;
+        }
+
+        .worker-container {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        .home-button {
+            margin-top: 20px;
+            position: absolute;
+            margin-top: 100px;
+            padding: 10px 20px;
+            background-color: #880E4F;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            bottom: 20px;
+            left: 50%;
+            justify-content: center;
+            text-align: center;
+            display: flex;
+            transform: translateX(-50%);
+        }
+        .home-button:hover {
+            background-color: #F5C6EC;
+            color: #000
+        }
+        @media (max-width: 768px) {
+            .chart {
+                transform: scale(0.9);
+            }
+
+            .person {
+                width: 120px;
+                height: 150px;
+            }
+
+            .person-back img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .worker-level {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chart">
+
+        <div class="level">
+            <div class="person" onclick="toggleFullscreen(this)">
+                <div class="person-inner">
+                    <div class="person-front"><strong>CEO/ Owner</strong></div>
+                    <div class="person-back">
+                        <img src="ceo.jpg" alt="CEO">
+                        <strong>Joy S. Dajan</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="level">
+            <div class="person" onclick="toggleFullscreen(this)">
+                <div class="person-inner">
+                    <div class="person-front"><strong>General Manager</strong></div>
+                    <div class="person-back">
+                        <img src="gm.jpg" alt="Manager">
+                        <strong>Harry P. Dajan</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="level">
+            <div class="worker-container">
+                <div class="worker-level">
+                    <div class="person" onclick="toggleFullscreen(this)">
+                        <div class="person-inner">
+                            <div class="person-front"><strong>Technology Administration and Security Consultant</strong></div>
+                            <div class="person-back">
+                                <img src="jade2.jpg" alt="Worker 1">
+                                <strong>Jade Kratos Mcjump</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="person" onclick="toggleFullscreen(this)">
+                        <div class="person-inner">
+                            <div class="person-front"><strong>Office Manager and Auditor</strong></div>
+                            <div class="person-back">
+                                <img src="om.jpg" alt="Worker 2">
+                                <strong>Handerson P. Dajan</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="person" onclick="toggleFullscreen(this)">
+                        <div class="person-inner">
+                            <div class="person-front"><strong>Finance Spcialist</strong></div>
+                            <div class="person-back">
+                                <img src="finance.jpg" alt="Worker 3">
+                                <strong>Hanilyn D. Aclo</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://jmacaambac.github.io/hnjdraft/" class="home-button">Home</a>
+</body>
+</html>
