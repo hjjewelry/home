@@ -14,6 +14,20 @@
             overflow: hidden;
             font-family: Arial, sans-serif;
         }
+        .profile-section {
+            position: relative;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 80px;
+            margin-top: -100px;
+        }
+        .profile-pic {
+            width: 70px;
+            height: 70px;
+            border: 0px;
+            transition: transform 0.3s ease-in-out;
+        }
         .card-container {
             position: relative;
             width: 400px;
@@ -82,6 +96,9 @@
     </style>
 </head>
 <body>
+     <div class="container">
+        <div class="profile-section">
+            <img src="hnjmockups3.png" alt="Profile Picture" class="profile-pic">
     <div class="card-container">
         <div class="card" style="z-index: 4;" onclick="nextCard(this)">
             <img src="hnjlogofinal2.png" alt="Card 1">
@@ -127,6 +144,7 @@
         </div>
      </div>
 </div>
+         </div>
        <div> <a href="https://hjjewelry.github.io/home" class="home-button">Home</a></div> 
     <script>
         function nextCard(card) {
