@@ -7,6 +7,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -35,7 +36,7 @@
             transform: scale(1.7);
         }
         .chart {
-             display: flex;
+            display: flex;
             flex-direction: column;
             align-items: center;
             width: 100%;
@@ -45,9 +46,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
             margin: 20px 0;
             position: relative;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .person {
@@ -125,17 +127,18 @@
         }
        .button-container {
             display: flex;
+            justify-content: center;
             gap: 20px;
             margin-top: 20px;
         }
 
         .button {
-            padding: 10px 20px;
+           padding: 10px 20px;
             font-size: 16px;
             background-color: #9A208C;
             color: white;
             border: none;
-            border-radius: 50px;
+            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
         }
@@ -144,8 +147,11 @@
             background-color: #FFEAEA;
         }
         @media (max-width: 768px) {
-            .chart {
-                transform: scale(0.9);
+             .chart {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                justify-content: center;
             }
 
             .person {
@@ -154,14 +160,10 @@
             }
 
             .person-back img {
-                width: 100px;
-                height: 100px;
+                width: 60px;
+                height: 60px;
             }
 
-            .worker-level {
-                flex-direction: column;
-                gap: 20px;
-            }
             .person:active {
                 position: fixed;
                 top: 50%;
@@ -172,11 +174,6 @@
                 padding: 20px;
                 border-radius: 10px;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            }
-
-            .person-inner:active {
-                transform: scale(3);
-                transition: transform 0.3s;
             }
         }
     </style>
