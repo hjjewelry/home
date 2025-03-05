@@ -16,7 +16,24 @@
             font-family: Arial, sans-serif;
             overflow-x: hidden;
         }
-    
+        .profile-section {
+            position: relative;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 80px;
+            margin-top: -100px;
+        }
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid white;
+            transition: transform 0.3s ease-in-out;
+        }
+         .profile-pic:hover {
+            transform: scale(1.7);
+        }
         .chart {
              display: flex;
             flex-direction: column;
@@ -126,13 +143,6 @@
             background-color: #F5C6EC;
             color: #000
         }
-         .logo-hover {
-            width: 75px;
-            transition: transform 0.3s ease-in-out;
-            }
-        .logo-hover:hover {
-            transform: scale(1.5);
-        }
         @media (max-width: 768px) {
             .chart {
                 transform: scale(0.9);
@@ -155,10 +165,10 @@
         }
     </style>
 </head>
+<body>
      <div>
        <img src="hnjlogofinal2.png" class="logo-hover" alt="My Logo" style="width: 100px;  display: inline-block;">
     </div>
-<body>
     <div class="chart">
 
         <div class="level">
