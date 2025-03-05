@@ -123,25 +123,25 @@
             text-align: center;
             position: relative;
         }
-        .home-button {
-            margin-top: 20px;
-            position: absolute;
-            margin-top: 100px;
-            padding: 10px 20px;
-            background-color: #880E4F;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            bottom: 20px;
-            left: 50%;
-            justify-content: center;
-            text-align: center;
+       .button-container {
             display: flex;
-            transform: translateX(-50%);
+            gap: 20px;
+            margin-top: 20px;
         }
-        .home-button:hover {
-            background-color: #F5C6EC;
-            color: #000
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #9A208C;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #FFEAEA;
         }
         @media (max-width: 768px) {
             .chart {
@@ -161,6 +161,22 @@
             .worker-level {
                 flex-direction: column;
                 gap: 20px;
+            }
+            .person:active {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(2);
+                z-index: 100;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .person-inner:active {
+                transform: scale(3);
+                transition: transform 0.3s;
             }
         }
     </style>
@@ -230,7 +246,9 @@
     </div>
                 </div>
 
-    <a href="https://hjjewelry.github.io/home" class="home-button">Home</a>
+     <div class="button-container">
+        <button class="button" onclick="window.location.href='index.html'">Home</button>
+    </div>
     
 </body>
 </html>
