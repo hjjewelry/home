@@ -18,10 +18,7 @@
             overflow-x: hidden;
         }
         .profile-section {
-            position: relative;
             text-align: center;
-            align-items: center;
-            justify-content: center;
             margin-bottom: 80px;
             margin-top: -100px;
         }
@@ -32,7 +29,7 @@
             border: 3px solid white;
             transition: transform 0.3s ease-in-out;
         }
-         .profile-pic:hover {
+        .profile-pic:hover {
             transform: scale(1.7);
         }
         .chart {
@@ -41,26 +38,22 @@
             align-items: center;
             width: 100%;
         }
-
         .level {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 20px 0;
-            position: relative;
             flex-wrap: wrap;
+            margin: 20px 0;
             gap: 20px;
         }
-
         .person {
             width: 150px;
             height: 180px;
             perspective: 1000px;
-            margin: 10px;
             position: relative;
             cursor: pointer;
+            text-align: center;
         }
-
         .person-inner {
             width: 100%;
             height: 100%;
@@ -68,22 +61,9 @@
             transform-style: preserve-3d;
             transition: transform 0.5s;
         }
-
         .person:hover .person-inner {
             transform: rotateY(180deg);
         }
-        .person.active {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(2);
-            z-index: 100;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
         .person-front, .person-back {
             position: absolute;
             width: 100%;
@@ -97,43 +77,31 @@
             border-radius: 20px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
-
         .person-back {
             transform: rotateY(180deg);
             flex-direction: column;
         }
-
         .person-back img {
             width: 140px;
             height: 140px;
             border-radius: 50%;
             margin-bottom: 10px;
         }
-
         .worker-level {
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            position: relative;
             gap: 50px;
         }
-
-        .worker-container {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-       .button-container {
+        .button-container {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
         }
-
         .button {
-           padding: 10px 20px;
+            padding: 10px 20px;
             font-size: 16px;
             background-color: #9A208C;
             color: white;
@@ -142,49 +110,43 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
         .button:hover {
             background-color: #FFEAEA;
         }
         @media (max-width: 768px) {
-             .chart {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
+            .chart {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 width: 100%;
             }
-
-            .person {
-                width: 100px;
-                height: 120px;
+            .level {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
             }
-
+            .worker-level {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .person {
+                width: 120px;
+                height: 140px;
+            }
             .person-back img {
                 width: 90px;
                 height: 90px;
-            }
-
-            .person:focus {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(2);
-                z-index: 100;
-                background: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             }
         }
     </style>
 </head>
 <body>
-      <div class="profile-section">
-            <img src="hnjmockups5.png" alt="Profile Picture" class="profile-pic">
+    <div class="profile-section">
+        <img src="hnjmockups5.png" alt="Profile Picture" class="profile-pic">
+    </div>
     <div class="chart">
-
         <div class="level">
-            <div class="person" onclick="toggleFullscreen(this)">
+            <div class="person">
                 <div class="person-inner">
                     <div class="person-front"><strong>CEO/ Owner</strong></div>
                     <div class="person-back">
@@ -194,9 +156,8 @@
                 </div>
             </div>
         </div>
-
         <div class="level">
-            <div class="person" onclick="toggleFullscreen(this)">
+            <div class="person">
                 <div class="person-inner">
                     <div class="person-front"><strong>General Manager</strong></div>
                     <div class="person-back">
@@ -206,44 +167,38 @@
                 </div>
             </div>
         </div>
-
-        <div class="level">
-            <div class="worker-container">
-                <div class="worker-level">
-                    <div class="person" onclick="toggleFullscreen(this)">
-                        <div class="person-inner">
-                            <div class="person-front"><strong>Technology Administration and Security Consultant</strong></div>
-                            <div class="person-back">
-                                <img src="jade2.jpg" alt="Worker 1">
-                                <strong>Jade Kratos Mcjump</strong>
-                            </div>
-                        </div>
+        <div class="level worker-level">
+            <div class="person">
+                <div class="person-inner">
+                    <div class="person-front"><strong>Technology Consultant</strong></div>
+                    <div class="person-back">
+                        <img src="jade2.jpg" alt="Worker 1">
+                        <strong>Jade Kratos Mcjump</strong>
                     </div>
-                    <div class="person" onclick="toggleFullscreen(this)">
-                        <div class="person-inner">
-                            <div class="person-front"><strong>Office Manager and Auditor</strong></div>
-                            <div class="person-back">
-                                <img src="om.jpg" alt="Worker 2">
-                                <strong>Handerson P. Dajan</strong>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="person">
+                <div class="person-inner">
+                    <div class="person-front"><strong>Office Manager</strong></div>
+                    <div class="person-back">
+                        <img src="om.jpg" alt="Worker 2">
+                        <strong>Handerson P. Dajan</strong>
                     </div>
-                    <div class="person" onclick="toggleFullscreen(this)">
-                        <div class="person-inner">
-                            <div class="person-front"><strong>Finance Spcialist</strong></div>
-                            <div class="person-back">
-                                <img src="finance.jpg" alt="Worker 3">
-                                <strong>Hanilyn D. Aclo</strong>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="person">
+                <div class="person-inner">
+                    <div class="person-front"><strong>Finance Specialist</strong></div>
+                    <div class="person-back">
+                        <img src="finance.jpg" alt="Worker 3">
+                        <strong>Hanilyn D. Aclo</strong>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-     <div class="button-container">
+    <div class="button-container">
         <button class="button" onclick="window.location.href='index.html'">Home</button>
     </div>
-    
 </body>
 </html>
