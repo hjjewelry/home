@@ -10,17 +10,18 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #f5f5f5;
             background-image: url('jewels.png');
             background-size: cover;
             font-family: Arial, sans-serif;
             overflow-x: hidden;
+            padding: 20px 10px;
         }
         .profile-section {
             text-align: center;
-            margin-bottom: 80px;
-            margin-top: -100px;
+            margin-bottom: 20px;
+            margin-top: 20px;
         }
         .profile-pic {
             width: 100px;
@@ -28,6 +29,8 @@
             border-radius: 50%;
             border: 3px solid white;
             transition: transform 0.3s ease-in-out;
+            display: block;
+            margin: 0 auto;
         }
         .profile-pic:hover {
             transform: scale(1.7);
@@ -45,6 +48,7 @@
             margin: 20px 0;
             gap: 20px;
             width: 100%;
+            flex-wrap: wrap;
         }
         .worker-level {
             display: flex;
@@ -52,6 +56,7 @@
             align-items: center;
             gap: 50px;
             width: 100%;
+            flex-wrap: wrap;
         }
         .person {
             width: 150px;
@@ -123,13 +128,20 @@
             .level {
                 flex-direction: column;
                 text-align: center;
-                gap: 30px;
+                gap: 20px;
                 width: 100%;
             }
             .worker-level {
                 flex-direction: column;
-                gap: 30px;
+                gap: 20px;
                 width: 100%;
+            }
+            .profile-section {
+                margin-top: 10px;
+            }
+            .profile-pic {
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
