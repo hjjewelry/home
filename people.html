@@ -40,12 +40,12 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
+            gap: 20px;
         }
         .level {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 20px 0;
             gap: 20px;
             width: 100%;
             flex-wrap: wrap;
@@ -54,7 +54,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 50px;
+            gap: 20px;
             width: 100%;
             flex-wrap: wrap;
         }
@@ -120,23 +120,15 @@
         }
         @media (max-width: 768px) {
             .chart {
-                display: flex;
                 flex-direction: column;
                 align-items: center;
-                width: 100%;
+                gap: 10px;
             }
-            .level {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-                width: 100%;
-            }
-            .worker-level {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-                width: 100%;
+            .level, .worker-level {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
             }
             .profile-section {
                 margin-top: 10px;
