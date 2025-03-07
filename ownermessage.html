@@ -79,6 +79,7 @@
     <div class="container">
         <div class="profile-section">
             <img src="joy.jpg" alt="Profile Picture" class="profile-pic">
+             <span id="mute-btn" style="cursor: pointer; font-size: 24px;">🔇</span>
         <h1><strong>A Message from Joy</strong></h1>
         <h1> " </h1>
         <h1>Dear Valued Customers, Partners, and Friends,</h1>
@@ -96,6 +97,30 @@
        <img src="hnjlogofinal3.png" class="logo-hover" alt="My Logo" style="width: 50px;">
     </div>
     </div>
-   
+   <audio id="bg-music" autoplay loop>
+    <source src="joyaudio.mp3" type="audio/mpeg">
+ Your browser does not support the audio element.
+</audio>
 </body>
+      <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("bg-music");
+        const muteBtn = document.getElementById("mute-btn");
+        audio.oncanplaythrough = function() {
+            console.log("Audio is ready to play!");
+            audio.muted = false;
+        };
+        muteBtn.addEventListener("click", function () {
+            if (audio) {
+                audio.muted = !audio.muted;
+                if (audio.muted) {
+                    muteBtn.textContent = "🔊";
+                } else {
+                    muteBtn.textContent = "🔇";
+                }
+                console.log("Audio muted status:", audio.muted);
+            }
+        });
+    });
+</script>
 </html>
