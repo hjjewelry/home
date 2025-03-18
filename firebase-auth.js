@@ -3,12 +3,12 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 
 // Your Firebase config
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDR2L93KHjwDmrmVzb6Wnm9T_e3eEEJRc8",
+  authDomain: "portal-login-664ee.firebaseapp.com",
+  projectId: "portal-login-664ee",
+  storageBucket: "portal-login-664ee.firebasestorage.app",
+  messagingSenderId: "327074408916",
+  appId: "1:327074408916:web:e9dd3d01e1ab14d804ce41"
 };
 
 // Initialize Firebase
