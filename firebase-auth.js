@@ -51,3 +51,35 @@ document.getElementById("logout-btn").addEventListener("click", () => {
         document.getElementById("logout-btn").style.display = "none";
     });
 });
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+const db = getFirestore(app);
+
+// Submit Complaint
+document.getElementById("submit-complaint").addEventListener("click", async () => {
+    const user = auth.currentUser;
+    if (!user) {
+        alert("You must be logged in to submit a complaint.");
+        return;
+    }
+
+    const complaintText = document.getElementById("complaint-text").value;
+    if (complaintText.trim() === "") {
+        alert("Please enter a complaint.");
+        return;
+    }
+
+    try {
+        await addDoc(collection(db, "complaints"), {
+            userId: user.uid,
+            email: user.email,
+            complaint: complaintText,
+            timestamp: new Date()
+        });
+        alert("Complaint submitted successfully!");
+        document.getElementById("complaint-text").value = ""; // Clear form
+    } catch (error) {
+        alert("Error submitting complaint: " + error.message);
+    }
+});
+
